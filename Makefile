@@ -22,6 +22,7 @@ static: venv/bin/activate
 
 clean:
 	rm -rf __pycache__
+	rm -f dist/*
 
 # Targets that do not represent actual files
 .PHONY: dist test static clean
