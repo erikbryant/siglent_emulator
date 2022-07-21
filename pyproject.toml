@@ -23,4 +23,4 @@ classifiers = [
 "Bug Tracker" = "https://github.com/BoundlessScience/siglent_emulator/issues"
 
 [tool.setuptools.package-data]
-siglent_emulator = ["py.typed"]
+"*" = ["py.typed"]
