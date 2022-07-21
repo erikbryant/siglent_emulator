@@ -1,9 +1,11 @@
 __pycache__/
 venv/
-
-.mypy_cache
+dist/
+.mypy_cache/
+*.egg-info/
 
 # Pickle files
 *.p
 
+# Code coverage files
 .coverage
