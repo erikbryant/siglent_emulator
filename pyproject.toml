@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "siglent_emulator"
@@ -21,3 +21,6 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/pypa/siglent_emulator"
 "Bug Tracker" = "https://github.com/BoundlessScience/siglent_emulator/issues"
+
+[tool.setuptools.package-data]
+siglent_emulator = ["py.typed"]
