@@ -9,7 +9,7 @@ import sys
 import time
 
 
-def connect(ip_addr: str, port: int):
+def connect(ip_addr: str, port: int) -> socket.socket:
     """Connect to the emulator."""
     emulator = socket.socket()
 

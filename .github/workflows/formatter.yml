@@ -20,4 +20,5 @@ jobs:
         python -m pip install black
     - name: Formatting source code with Black
       run: |
-        python -m black --target-version py310 --check --diff siglent_emulator/
+        python -m black --target-version py310 --check --diff src/emulator/
+        python -m black --target-version py310 --check --diff src/client/

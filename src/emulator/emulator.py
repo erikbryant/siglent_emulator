@@ -9,7 +9,7 @@ import sys
 from _thread import start_new_thread
 import threading
 
-from siglent_emulator.function_generator import sdg1032x
+from emulator.function_generator import sdg1032x
 
 
 class Emulator:

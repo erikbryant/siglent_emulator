@@ -16,13 +16,22 @@ test: venv/bin/activate
 	./venv/bin/python -m coverage report
 
 static: venv/bin/activate
-	./venv/bin/python -m pylint siglent_emulator/
-	./venv/bin/python -m mypy siglent_emulator/
-	./venv/bin/python -m black --target-version py310 siglent_emulator/
+	./venv/bin/python -m pylint src/emulator/
+	./venv/bin/python -m mypy src/emulator/
+	./venv/bin/python -m black --target-version py310 src/emulator/
+
+	./venv/bin/python -m pylint src/client/
+	./venv/bin/python -m mypy src/client/
+	./venv/bin/python -m black --target-version py310 src/client/
 
 clean:
-	rm -rf __pycache__
-	rm -f dist/*
+	find . -name "__pycache__" -type d -print0 | xargs -0 rm -rf
+	rm -rf src/siglent_emulator.egg-info
+	rm -rf .mypy_cache
+	rm -rf dist
+	rm -rf docs
+	rm -rf venv
+	rm -f .coverage
 
 # Targets that do not represent actual files
 .PHONY: dist test static clean
