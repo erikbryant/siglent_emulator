@@ -1,4 +1,4 @@
-dist:
+dist: venv/bin/activate
 	./venv/bin/python -m pip install --upgrade build
 	./venv/bin/python -m build
 
