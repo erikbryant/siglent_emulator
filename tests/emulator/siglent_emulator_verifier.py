@@ -6,6 +6,7 @@ import sys
 import time
 from typing import List, Tuple
 
+# pylint: disable=broad-except
 
 state_defaults: List[str] = [
     "*RST",

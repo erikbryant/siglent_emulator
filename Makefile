@@ -16,13 +16,9 @@ test: venv/bin/activate
 	./venv/bin/python -m coverage report
 
 static: venv/bin/activate
-	./venv/bin/python -m pylint src/emulator/
-	./venv/bin/python -m mypy src/emulator/
-	./venv/bin/python -m black --target-version py310 src/emulator/
-
-	./venv/bin/python -m pylint src/client/
-	./venv/bin/python -m mypy src/client/
-	./venv/bin/python -m black --target-version py310 src/client/
+	./venv/bin/python -m pylint src/ tests/
+	./venv/bin/python -m mypy src/ tests/
+	./venv/bin/python -m black --target-version py310 src/ tests/
 
 clean:
 	find . -name "__pycache__" -type d -print0 | xargs -0 rm -rf
