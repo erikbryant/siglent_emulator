@@ -4,6 +4,7 @@ import unittest
 
 from siglent_emulator.function_generator import sdg1032x
 
+
 class Test(unittest.TestCase):
     """Test cases."""
 
