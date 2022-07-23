@@ -19,7 +19,8 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install mypy
         python -m pip install -r requirements.txt
-    - name: Analysing source code with mypy
+        python -m pip install git+ssh://git@github.com/BoundlessScience/siglent_emulator
+    - name: Analyzing source code with mypy
       run: |
         python -m mypy src/
         python -m mypy tests/
