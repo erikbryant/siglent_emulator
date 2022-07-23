@@ -21,6 +21,4 @@ jobs:
         python -m pip install -r requirements.txt
     - name: Python unittest
       run: |
-        cd tests/
-        python3 -m coverage run --source=. -m unittest
-        python3 -m coverage report
+        python -m tox

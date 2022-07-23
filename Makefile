@@ -7,8 +7,7 @@ venv/bin/activate: requirements.txt
 	./venv/bin/python -m pip install -r requirements.txt
 
 test: venv/bin/activate
-	./venv/bin/python -m coverage run --source=. -m unittest
-	./venv/bin/python -m coverage report
+	python3 -m tox
 
 static: venv/bin/activate
 	./venv/bin/python -m pylint src/ tests/
