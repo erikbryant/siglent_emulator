@@ -3,6 +3,7 @@ venv/
 dist/
 .mypy_cache/
 *.egg-info/
+.tox/
 
 # Pickle files
 *.p
