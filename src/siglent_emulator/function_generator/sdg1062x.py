@@ -7,7 +7,7 @@ from siglent_emulator.function_generator import sdg_series
 # pylint: disable=fixme
 
 
-class SDG1032XChannel(sdg_series.SDGChannel):
+class SDG1062XChannel(sdg_series.SDGChannel):
     """Emulate a function generator output channel."""
 
     def outp(self, command: str) -> str:
@@ -21,10 +21,10 @@ class SDG1032XChannel(sdg_series.SDGChannel):
         return sdg_series.SDGChannel.bswv(self, command)
 
 
-class SDG1032X(sdg_series.SDG):
+class SDG1062X(sdg_series.SDG):
     """Emulate a Siglent function generator."""
 
-    channels = [SDG1032XChannel(1), SDG1032XChannel(2)]
+    channels = [SDG1062XChannel(1), SDG1062XChannel(2)]
 
     def identification(self) -> str:
         """Process the command, update state, optionally return a result."""

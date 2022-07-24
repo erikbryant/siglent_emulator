@@ -2,7 +2,7 @@
 
 import unittest
 
-from siglent_emulator.function_generator import sdg1032x
+from siglent_emulator.function_generator import util
 
 
 class Test(unittest.TestCase):
@@ -10,11 +10,11 @@ class Test(unittest.TestCase):
 
     def test_0_channel_to_index(self):
         """Can successfully compute the channel number."""
-        self.assertEqual(sdg1032x.channel_to_index("C1"), 0)
+        self.assertEqual(util.channel_to_index("C1"), 0)
 
     def test_1_channel_to_index(self):
         """Returns -1 on error."""
-        self.assertEqual(sdg1032x.channel_to_index("foo"), -1)
+        self.assertEqual(util.channel_to_index("foo"), -1)
 
 
 if __name__ == "__main__":

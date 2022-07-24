@@ -16,7 +16,7 @@ class Emulator:
     """Emulate a lab device over a socket."""
 
     ThreadCount = 0
-    func_gen = sdg1032x.SiglentDevice()
+    func_gen = sdg1032x.SDG1032X()
 
     def client_handler(self, connection: socket.socket) -> None:
         """Receive a command from the client, process, and respond."""
