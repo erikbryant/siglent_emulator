@@ -6,6 +6,8 @@ import sys
 import time
 from typing import List, Tuple
 
+import siglent_emulator.emulator
+
 # pylint: disable=broad-except
 
 state_defaults: List[str] = [
@@ -218,7 +220,7 @@ def rounding_tests_amp(
 
 def usage() -> None:
     """Print usage message and exit with error."""
-    errlog.error("Usage: %s emulator_ip emulator_port, hw_ip, hw_port", sys.argv[0])
+    errlog.error("Usage: %s hw_ip, hw_port", sys.argv[0])
     sys.exit(1)
 
 
@@ -230,19 +232,19 @@ def main() -> None:
         level=logging.INFO,
     )
 
-    if len(sys.argv) != 5:
+    if len(sys.argv) != 3:
         usage()
 
     try:
-        emulator_ip_addr: str = sys.argv[1]
-        emulator_port: int = int(sys.argv[2])
-        hardware_ip_addr: str = sys.argv[3]
-        hardware_port: int = int(sys.argv[4])
+        hardware_ip_addr: str = sys.argv[1]
+        hardware_port: int = int(sys.argv[2])
     except Exception as err:
         errlog.exception(err)
         usage()
 
-    emulator = open_socket(ip_addr=emulator_ip_addr, port=emulator_port)
+    emulator_port = 21111
+    siglent_emulator.emulator.start(port=emulator_port, daemon=True)
+    emulator = open_socket(ip_addr="127.0.0.1", port=emulator_port)
     hardware = open_socket(ip_addr=hardware_ip_addr, port=hardware_port)
 
     # In case the emulator or hardware is not at default state, reset it.
