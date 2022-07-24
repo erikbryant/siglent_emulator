@@ -1,18 +1,24 @@
 sdist: venv/bin/activate
-	./venv/bin/python -m pip install --upgrade build
-	./venv/bin/python -m build
+	venv/bin/python -m pip install --upgrade build
+	venv/bin/python -m build
 
 venv/bin/activate: requirements.txt
 	python3 -m venv venv
-	./venv/bin/python -m pip install -r requirements.txt
+	venv/bin/python -m pip install -r requirements.txt
 
 test: venv/bin/activate
-	python3 -m tox
+	venv/bin/python -m tox
 
-static: venv/bin/activate
-	./venv/bin/python -m pylint src/ tests/
-	./venv/bin/python -m mypy src/ tests/
-	./venv/bin/python -m black --target-version py310 src/ tests/
+pylint: venv/bin/activate
+	venv/bin/python -m pylint src/ tests/
+
+mypy: venv/bin/activate
+	venv/bin/python -m mypy src/ tests/
+
+black: venv/bin/activate
+	venv/bin/python -m black --target-version py310 src/ tests/
+
+all: pylint mypy black test
 
 clean:
 	find . -name "__pycache__" -type d -print0 | xargs -0 rm -rf
@@ -24,4 +30,4 @@ clean:
 	rm -f .coverage
 
 # Targets that do not represent actual files
-.PHONY: sdist test static clean
+.PHONY: sdist test pylint mypy black all clean
