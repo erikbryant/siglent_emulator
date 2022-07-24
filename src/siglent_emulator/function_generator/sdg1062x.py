@@ -1,54 +1,24 @@
-"""Emulate a Siglent function generator."""
+"""Emulate an SDG1062X Siglent function generator.
+
+This model is identical to the SDG1032X with the exception of identification()."""
 
 import logging
 
-from siglent_emulator.function_generator import sdg_series
-
-# pylint: disable=fixme
+from siglent_emulator.function_generator import sdg1032x
 
 
-class SDG1062XChannel(sdg_series.SDGChannel):
+class SDG1062XChannel(sdg1032x.SDG1032XChannel):
     """Emulate a function generator output channel."""
 
-    def outp(self, command: str) -> str:
-        """Proccess all variants of the OUTP command."""
-        # TODO: implement
-        return sdg_series.SDGChannel.outp(self, command)
 
-    def bswv(self, command) -> str:
-        """Proccess all variants of the BSWV command."""
-        # TODO: implement
-        return sdg_series.SDGChannel.bswv(self, command)
-
-
-class SDG1062X(sdg_series.SDG):
+class SDG1062X(sdg1032x.SDG1032X):
     """Emulate a Siglent function generator."""
 
     channels = [SDG1062XChannel(1), SDG1062XChannel(2)]
 
     def identification(self) -> str:
         """Process the command, update state, optionally return a result."""
-        return "Siglent Technologies,SDG1032X,SDG1XCBD5R6027,1.01.01.33R1B6"
-
-    def operation_complete(self) -> str:
-        """Process the command, update state, optionally return a result."""
-        # TODO: implement
-        return ""
-
-    def comm_header(self) -> str:
-        """Process the command, update state, optionally return a result."""
-        # The SDG1000X series does not implement this command
-        return ""
-
-    def parameter_copy(self, command: str) -> str:
-        """Process the command, update state, optionally return a result."""
-        # TODO: implement
-        return sdg_series.SDG.parameter_copy(self, command)
-
-    def store_list(self, command: str) -> str:
-        """Process the command, update state, optionally return a result."""
-        # TODO: implement
-        return sdg_series.SDG.store_list(self, command)
+        return "Siglent Technologies,SDG1062X,SDG1XCBD5R6027,1.01.01.33R1B6"
 
 
 errlog = logging.getLogger(__name__)

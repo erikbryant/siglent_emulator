@@ -1,4 +1,4 @@
-"""Emulate a Siglent function generator."""
+"""Emulate an SDG1032X Siglent function generator."""
 
 import logging
 
