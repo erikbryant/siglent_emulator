@@ -11,20 +11,18 @@ import time
 
 def connect(ip_addr: str, port: int) -> socket.socket:
     """Connect to the emulator."""
-    emulator = socket.socket()
-
     print("Waiting for connection")
 
     connected = False
     while not connected:
         try:
-            emulator.connect((ip_addr, port))
+            connection = socket.create_connection((ip_addr, port))
             connected = True
         except socket.error as err:
             print(str(err))
             time.sleep(1)
 
-    return emulator
+    return connection
 
 
 def interactive(emulator: socket.socket) -> None:

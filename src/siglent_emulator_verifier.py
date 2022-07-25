@@ -66,8 +66,7 @@ def open_socket(ip_addr: str, port: int) -> socket.socket:
     connected: bool = False
     while not connected:
         try:
-            connection = socket.socket()
-            connection.connect((ip_addr, port))
+            connection = socket.create_connection((ip_addr, port))
             connected = True
         except socket.error as err:
             print(str(err))
