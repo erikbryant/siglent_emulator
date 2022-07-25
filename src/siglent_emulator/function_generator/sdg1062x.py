@@ -14,7 +14,7 @@ class SDG1062XChannel(sdg1032x.SDG1032XChannel):
 class SDG1062X(sdg1032x.SDG1032X):
     """Emulate a Siglent function generator."""
 
-    channels = [SDG1062XChannel(1), SDG1062XChannel(2)]
+    channels = [SDG1062XChannel(channel=1), SDG1062XChannel(channel=2)]
 
     def identification(self) -> str:
         """Process the command, update state, optionally return a result."""

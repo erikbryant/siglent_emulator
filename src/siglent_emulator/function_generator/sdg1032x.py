@@ -24,7 +24,7 @@ class SDG1032XChannel(sdg_series.SDGChannel):
 class SDG1032X(sdg_series.SDG):
     """Emulate a Siglent function generator."""
 
-    channels = [SDG1032XChannel(1), SDG1032XChannel(2)]
+    channels = [SDG1032XChannel(channel=1), SDG1032XChannel(channel=2)]
 
     def identification(self) -> str:
         """Process the command, update state, optionally return a result."""
@@ -43,12 +43,12 @@ class SDG1032X(sdg_series.SDG):
     def parameter_copy(self, command: str) -> str:
         """Process the command, update state, optionally return a result."""
         # TODO: implement
-        return sdg_series.SDG.parameter_copy(self, command)
+        return sdg_series.SDG.parameter_copy(self, command=command)
 
     def store_list(self, command: str) -> str:
         """Process the command, update state, optionally return a result."""
         # TODO: implement
-        return sdg_series.SDG.store_list(self, command)
+        return sdg_series.SDG.store_list(self, command=command)
 
 
 errlog = logging.getLogger(__name__)

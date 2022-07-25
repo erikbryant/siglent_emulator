@@ -208,8 +208,8 @@ class SDG(ABC):
             # Command is of the form 'PACP C2,C1'
             params = command.split(" ")
             params = params[1].split(",")
-            dest = util.channel_to_index(params[0])
-            source = util.channel_to_index(params[1])
+            dest = util.channel_to_index(channel=params[0])
+            source = util.channel_to_index(channel=params[1])
         except Exception as err:
             errlog.exception(err)
             return ""
@@ -244,11 +244,11 @@ class SDG(ABC):
         if command == "*OPC":
             return self.operation_complete()
         if command.startswith("PACP"):
-            return self.parameter_copy(command)
+            return self.parameter_copy(command=command)
         if command == "*RST":
             return self.reset()
         if command.startswith("STL"):
-            return self.store_list(command)
+            return self.store_list(command=command)
 
         # Is this is a channel command?
         if re.match("C[1-2]:", command):

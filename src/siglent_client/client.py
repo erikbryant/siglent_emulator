@@ -77,7 +77,7 @@ def main() -> None:
 
     print("Connected! For help, type: 'help?' or '?'. To exit, type 'exit'")
 
-    interactive(emulator)
+    interactive(emulator=emulator)
 
     emulator.close()
 

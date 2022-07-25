@@ -29,7 +29,7 @@ class Emulator:
                 # Sometimes messages com in so quickly they stack up
                 # before we can get back around to read them.
                 for msg in message.split("\n"):
-                    result = self.func_gen.dispatch(msg)
+                    result = self.func_gen.dispatch(command=msg)
                     if result != "":
                         if not result.endswith("\n"):
                             result += "\n"
@@ -67,7 +67,7 @@ class Emulator:
 
         while True:
             try:
-                self.accept_connections(server_socket)
+                self.accept_connections(connection=server_socket)
             except Exception as err:
                 errlog.exception(err)
                 break
@@ -77,7 +77,7 @@ class Emulator:
 def start_emulator(port: int = 21111) -> None:
     """Start the emulator."""
     emulator = Emulator()
-    emulator.start_server(port)
+    emulator.start_server(port=port)
 
 
 def start(port: int = 21111, daemon: bool = False) -> None:
