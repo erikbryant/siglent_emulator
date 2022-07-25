@@ -20,6 +20,9 @@ black: venv/bin/activate
 
 all: pylint mypy black test
 
+sdg1032x: venv/bin/activate
+	venv/bin/python src/siglent_emulator_verifier.py ${IP} ${PORT}
+
 clean:
 	find . -name "__pycache__" -type d -print0 | xargs -0 rm -rf
 	rm -rf src/siglent_emulator.egg-info
@@ -30,4 +33,4 @@ clean:
 	rm -f .coverage
 
 # Targets that do not represent actual files
-.PHONY: sdist test pylint mypy black all clean
+.PHONY: sdist test pylint mypy black all sdg1032x clean
