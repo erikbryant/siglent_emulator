@@ -7,7 +7,7 @@ https://siglentna.com//wp-content/uploads/dlm_uploads/2019/12/SDG_Programming-Gu
 from abc import ABC, abstractmethod
 import logging
 import re
-from typing import Any, Dict, List
+from typing import Dict, List
 
 from siglent_emulator.function_generator import util
 
@@ -102,7 +102,7 @@ class SDGChannel(ABC):
         return ""
 
     @abstractmethod
-    def bswv(self, command) -> str:
+    def bswv(self, command: str) -> str:
         """Proccess all variants of the BSWV command."""
         cvals = self.cvals
 
@@ -186,7 +186,7 @@ class SDG(ABC):
     derived classes to implement specific functions.
     """
 
-    channels: List[Any]
+    channels: List[SDGChannel]
     dvals = device_defaults.copy()
 
     @abstractmethod
@@ -260,7 +260,7 @@ class SDG(ABC):
             channel -= 1
             if channel < 0 or channel >= len(self.channels):
                 return ""
-            return self.channels[channel].dispatch(command)
+            return self.channels[channel].dispatch(command=command)
 
         # This was not a valid command
         return ""

@@ -15,7 +15,7 @@ class SDG1032XChannel(sdg_series.SDGChannel):
         # TODO: implement
         return sdg_series.SDGChannel.outp(self, command)
 
-    def bswv(self, command) -> str:
+    def bswv(self, command: str) -> str:
         """Proccess all variants of the BSWV command."""
         # TODO: implement
         return sdg_series.SDGChannel.bswv(self, command)
