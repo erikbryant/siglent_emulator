@@ -72,18 +72,18 @@ class SDGChannel(ABC):
                 cvals["LOAD"] = param
                 if param == "50":
                     # Derivative values
-                    cvals["AMP"] = util.div(n=cvals['AMP'], d=2)
-                    cvals["AMPVRMS"] = util.div(n=cvals['AMPVRMS'], d=2)
-                    cvals["AMPDBM"] = util.div(n=cvals['AMPDBM'], d=2)
-                    cvals["HLEV"] = util.div(n=cvals['HLEV'], d=2)
-                    cvals["LLEV"] = util.div(n=cvals['LLEV'], d=2)
+                    cvals["AMP"] = util.div(n=cvals["AMP"], d="2")
+                    cvals["AMPVRMS"] = util.div(n=cvals["AMPVRMS"], d="2")
+                    cvals["AMPDBM"] = util.div(n=cvals["AMPDBM"], d="2")
+                    cvals["HLEV"] = util.div(n=cvals["HLEV"], d="2")
+                    cvals["LLEV"] = util.div(n=cvals["LLEV"], d="2")
                 elif param == "HZ":
                     # Derivative values
-                    cvals["AMP"] = util.mul(a=cvals['AMP'], b=2)
-                    cvals["AMPVRMS"] = util.mul(a=cvals['AMPVRMS'], b=2)
-                    cvals["AMPDBM"] = util.mul(a=cvals['AMPDBM'], b=2)
-                    cvals["HLEV"] = util.mul(a=cvals['HLEV'], b=2)
-                    cvals["LLEV"] = util.mul(a=cvals['LLEV'], b=2)
+                    cvals["AMP"] = util.mul(a=cvals["AMP"], b="2")
+                    cvals["AMPVRMS"] = util.mul(a=cvals["AMPVRMS"], b="2")
+                    cvals["AMPDBM"] = util.mul(a=cvals["AMPDBM"], b="2")
+                    cvals["HLEV"] = util.mul(a=cvals["HLEV"], b="2")
+                    cvals["LLEV"] = util.mul(a=cvals["LLEV"], b="2")
                 else:
                     return ""
                 break
