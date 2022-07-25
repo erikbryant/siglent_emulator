@@ -4,16 +4,13 @@ Software emulator for Siglent devices.
 
 # Usage
 
-The emulator mimics your Siglent device. Start the emulator and run your tests against it.
+The emulator mimics your Siglent device. Start the emulator.
 
 ```python
 from siglent_emulator import emulator
 
 PORT = 21111
- .
- .
- .
-    func_gen = my_func_gen.FuncGen()
+emulator.start(port=PORT, daemon=True)
 ```
 
 Then execute your code just as if you were talking to a physical Siglent device.
