@@ -1,4 +1,4 @@
-"""Emulate a Siglent function generator.
+"""Emulate commands common to all Siglent function generators.
 
 Command set is based on the SDG Series Programming Guide:
 https://siglentna.com//wp-content/uploads/dlm_uploads/2019/12/SDG_Programming-Guide_PG02-E04A.pdf
