@@ -29,7 +29,7 @@ class Emulator:
                 # Sometimes messages com in so quickly they stack up
                 # before we can get back around to read them.
                 for msg in message.split("\n"):
-                    result = self.func_gen.dispatch(command=msg)
+                    result = self.func_gen.process(command=msg)
                     if result != "":
                         if not result.endswith("\n"):
                             result += "\n"

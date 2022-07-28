@@ -14,12 +14,12 @@ class SDG1000XChannel(sdg_common.SDGChannel):
 class SDG1000X(sdg_common.SDG):
     """Emulate a Siglent function generator."""
 
-    def operation_complete(self) -> str:
+    def operation_complete(self, _: str) -> str:
         """Process the command, update state, optionally return a result."""
         # TODO: implement
         return ""
 
-    def comm_header(self) -> str:
+    def comm_header(self, _: str) -> str:
         """Process the command, update state, optionally return a result."""
         # The SDG1000X series does not implement this command
         return ""
