@@ -220,7 +220,7 @@ class SDGChannel(ABC):
         self.cvals = channel_defaults.copy()
         return ""
 
-    def dispatch(self, command: str) -> str:
+    def process(self, command: str) -> str:
         """Process the command, update state, optionally return a result."""
         if not command.startswith(f"C{self.channel}:"):
             return ""
