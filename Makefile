@@ -16,7 +16,7 @@ mypy: venv/bin/activate
 	venv/bin/python -m mypy src/ tests/
 
 black: venv/bin/activate
-	venv/bin/python -m black --target-version py310 src/ tests/
+	venv/bin/python -m black --target-version py310 $(CHECK_FLAGS) src/ tests/
 
 all: pylint mypy black test
 

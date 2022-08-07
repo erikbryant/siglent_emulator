@@ -20,5 +20,4 @@ jobs:
         python -m pip install black
     - name: Formatting source code with Black
       run: |
-        python -m black --target-version py310 --check --diff src/
-        python -m black --target-version py310 --check --diff tests/
+        CHECK_FLAGS='--check --diff' make black
