@@ -16,15 +16,10 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        # Authorize this repo to install from the siglent_emulator repo
-        eval `ssh-agent -s`
-        ssh-add - <<< '${{ secrets.SIGLENT_EMULATOR_REPO_PRIVATE_SSH_KEY }}'
-
         python -m pip install --upgrade pip
         python -m pip install mypy
         python -m pip install -r requirements.txt
-        python -m pip install git+ssh://git@github.com/BoundlessScience/siglent_emulator
+        python -m pip install git+ssh://git@github.com/erikbryant/siglent_emulator
     - name: Analyzing source code with mypy
       run: |
-        python -m mypy src/
-        python -m mypy tests/
+        make mypy

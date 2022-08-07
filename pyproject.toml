@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "siglent_emulator"
 version = "0.0.1"
 authors = [
-  { name="Boundless Science", email="author@example.com" },
+  { name="The SEmulator Project", email="author@example.com" },
 ]
 description = "A software emulator for Siglent devices"
 readme = "README.md"
@@ -20,7 +20,7 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/pypa/siglent_emulator"
-"Bug Tracker" = "https://github.com/BoundlessScience/siglent_emulator/issues"
+"Bug Tracker" = "https://github.com/erikbryant/siglent_emulator/issues"
 
 [tool.setuptools.package-data]
 "*" = ["py.typed"]

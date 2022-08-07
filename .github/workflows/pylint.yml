@@ -21,5 +21,4 @@ jobs:
         python -m pip install -r requirements.txt
     - name: Analyzing source code with pylint
       run: |
-        python -m pylint src/siglent_emulator/
-        python -m pylint src/siglent_client/
+        make pylint
