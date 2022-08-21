@@ -1,4 +1,7 @@
-![Test](https://github.com/erikbryant/siglent_emulator/actions/workflows/tests.yml/badge.svg)
+![Code Formatter](https://github.com/erikbryant/siglent_emulator/actions/workflows/formatter.yml/badge.svg)
+![Type Checking](https://github.com/erikbryant/siglent_emulator/actions/workflows/mypy.yml/badge.svg)
+![Pylint](https://github.com/erikbryant/siglent_emulator/actions/workflows/pylint.yml/badge.svg)
+![Tests](https://github.com/erikbryant/siglent_emulator/actions/workflows/tests.yml/badge.svg)
 
 # Siglent Emulator
 
