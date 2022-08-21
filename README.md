@@ -1,3 +1,5 @@
+![Test](https://github.com/erikbryant/siglent_emulator/actions/workflows/tests.yml/badge.svg)
+
 # Siglent Emulator
 
 Software emulator for Siglent devices.

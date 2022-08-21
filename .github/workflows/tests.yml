@@ -1,4 +1,4 @@
-name: Python unittest
+name: Code and packaging tests
 
 on: [push]
 
@@ -19,6 +19,6 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install --upgrade coverage
         python -m pip install -r requirements.txt
-    - name: Python unittest
+    - name: Run tests
       run: |
         make test
