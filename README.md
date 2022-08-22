@@ -17,9 +17,15 @@ Software emulator for [Siglent Technologies](https://siglentna.com/) test and me
 
 * Coming soon!
 
+# Installing the Emulator
+
+```shell
+python3 -m pip install git+https://github.com/erikbryant/siglent_emulator@0b5e28bfbc6506828f8323a2878d9af708678dd0
+```
+
 # Using the Emulator to test Your Code
 
-The emulator mimics your Siglent device. Start the emulator.
+The emulator mimics your Siglent device. You will talk to the emulator just like you would talk to your Siglent device. First, start the emulator.
 
 ```python
 from siglent_emulator import emulator
