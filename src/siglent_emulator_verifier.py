@@ -242,7 +242,7 @@ def main() -> None:
         usage()
 
     emulator_port = 21111
-    siglent_emulator.emulator.start(port=emulator_port, daemon=True)
+    siglent_emulator.emulator.start(device="SDG1032X", port=emulator_port, daemon=True)
     emulator = open_socket(ip_addr="127.0.0.1", port=emulator_port)
     hardware = open_socket(ip_addr=hardware_ip_addr, port=hardware_port)
 

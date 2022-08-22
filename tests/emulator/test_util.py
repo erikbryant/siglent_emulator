@@ -1,8 +1,12 @@
 """Tests."""
 
+import logging
 import unittest
 
+
 from siglent_emulator.function_generator import util
+
+logging.basicConfig(level=logging.CRITICAL)
 
 
 class Test(unittest.TestCase):

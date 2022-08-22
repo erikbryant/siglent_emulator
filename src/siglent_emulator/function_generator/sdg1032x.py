@@ -31,4 +31,9 @@ class SDG1032X(sdg1000x_series.SDG1000X):
         return "Siglent Technologies,SDG1032X,SDG1XCBD5R6027,1.01.01.33R1B6"
 
 
+def new() -> SDG1032X:
+    """Return an instance of this device."""
+    return SDG1032X()
+
+
 errlog = logging.getLogger(__name__)

@@ -1,4 +1,4 @@
-"""Emulate a Siglent lab device."""
+"""Emulate a Siglent test and measurement device."""
 
 # pylint: disable=broad-except
 
@@ -8,15 +8,25 @@ import socket
 import sys
 from _thread import start_new_thread
 import threading
+from typing import Any
 
 from siglent_emulator.function_generator import sdg1032x
+from siglent_emulator.function_generator import sdg1062x
+
+EMULATORS = {
+    "sdg1032x": sdg1032x,
+    "sdg1062x": sdg1062x,
+}
 
 
 class Emulator:
-    """Emulate a lab device over a socket."""
+    """Emulate a Siglent test and measurement device over a socket."""
 
-    ThreadCount = 0
-    func_gen = sdg1032x.SDG1032X()
+    device: Any
+
+    def __init__(self, device: str) -> None:
+        """Load the emulation code for this device."""
+        self.device = EMULATORS[device.lower()].new()
 
     def client_handler(self, connection: socket.socket) -> None:
         """Receive a command from the client, process, and respond."""
@@ -26,10 +36,10 @@ class Emulator:
                 message = data.decode("utf-8").strip().upper()
                 if message == "":
                     continue
-                # Sometimes messages com in so quickly they stack up
+                # Sometimes messages come in so quickly they stack up
                 # before we can get back around to read them.
                 for msg in message.split("\n"):
-                    result = self.func_gen.process(command=msg)
+                    result = self.device.process(command=msg)
                     if result != "":
                         if not result.endswith("\n"):
                             result += "\n"
@@ -59,8 +69,8 @@ class Emulator:
                 errlog.exception(err)
         return sock
 
-    def start_server(self, port: int) -> None:
-        """Start the server."""
+    def run(self, port: int) -> None:
+        """Listen for incoming connections."""
         server_socket = self.bind(port=port)
         errlog.info("Server is listing on port %d...", port)
         server_socket.listen()
@@ -74,24 +84,24 @@ class Emulator:
         server_socket.close()
 
 
-def start_emulator(port: int = 21111) -> None:
-    """Start the emulator."""
-    emulator = Emulator()
-    emulator.start_server(port=port)
+def _run(device: str, port: int) -> None:
+    """Run the emulator."""
+    emulator = Emulator(device=device)
+    emulator.run(port=port)
 
 
-def start(port: int = 21111, daemon: bool = False) -> None:
-    """Start the program (when invoked from code)."""
+def start(device: str, port: int = 21111, daemon: bool = False) -> None:
+    """Start the emulator inline or on a separate thread."""
     if daemon:
-        thread = threading.Thread(target=start, args=(port,))
+        thread = threading.Thread(target=_run, args=(device, port))
         thread.daemon = True
         thread.start()
     else:
-        start_emulator(port=port)
+        _run(device=device, port=port)
 
 
 def main() -> None:
-    """Start the program (when invoked from the command line)."""
+    """Start the emulator (when invoked from the command line)."""
     # Set the logging configuration for all modules in this program
     logging.basicConfig(
         format="%(asctime)s %(levelname)s:%(name)s:%(message)s",
@@ -99,19 +109,11 @@ def main() -> None:
         level=logging.INFO,
     )
 
-    port: int = 21111
-    if len(sys.argv) == 2:
-        try:
-            port = int(sys.argv[1])
-        except Exception as err:
-            errlog.exception(err)
-            errlog.error("Usage: emulator [port]")
-            sys.exit(1)
-    elif len(sys.argv) > 2:
-        errlog.error("Too many arguments. Usage: emulator [port]")
+    if len(sys.argv) != 2:
+        errlog.error("Usage: emulator device")
         sys.exit(1)
 
-    start(port=port)
+    start(port=21111, device=sys.argv[1])
 
 
 errlog = logging.getLogger(__name__)

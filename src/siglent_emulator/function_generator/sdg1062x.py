@@ -11,3 +11,8 @@ class SDG1062X(sdg1032x.SDG1032X):
     def identification(self) -> str:
         """Process the command, update state, optionally return a result."""
         return "Siglent Technologies,SDG1062X,SDG1XCBD5R6027,1.01.01.33R1B6"
+
+
+def new() -> SDG1062X:
+    """Return an instance of this device."""
+    return SDG1062X()
