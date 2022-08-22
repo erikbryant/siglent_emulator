@@ -5,9 +5,19 @@
 
 # Siglent Emulator
 
-Software emulator for Siglent devices. Use the emulator to test your Python code before deploying.
+Software emulator for [Siglent Technologies](https://siglentna.com/) test and measurement equipment. Use the emulator to test your code before deploying. The emulator is written in Python, but your code can be in any language.
 
-# Usage
+# Supported Equipment
+
+## Siglent Function Generator
+
+* SDG1000x series
+
+## Siglent Oscilloscope
+
+* Coming soon!
+
+# Using the Emulator to test Your Code
 
 The emulator mimics your Siglent device. Start the emulator.
 
@@ -31,3 +41,15 @@ Then execute your code giving the IP address and port of the emulator. Your code
 ```
 
 Look in the [examples](examples) directory for a fully working example that uses the Python unittest framework.
+
+# Contributing to the Emulator
+
+Pull requests are welcome!
+
+## Testing the emulator
+
+From the root directory of your checkout, type:
+
+```shell
+make all
+```
