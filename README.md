@@ -23,9 +23,9 @@ Software emulator for [Siglent Technologies](https://siglentna.com/) test and me
 python3 -m pip install git+https://github.com/erikbryant/siglent_emulator@0b5e28bfbc6506828f8323a2878d9af708678dd0
 ```
 
-# Using the Emulator to test Your Code
+# Using the Emulator in Tests
 
-The emulator mimics your Siglent device. You will talk to the emulator just like you would talk to your Siglent device. First, start the emulator.
+The emulator mimics your Siglent device. Your tests will communicate with the emulator just as they would communicate with your Siglent device. The emulator can be started from within the test. There is no need to have it running separately. The emulator is started with just a few lines of Python:
 
 ```python
 from siglent_emulator import emulator
@@ -34,7 +34,7 @@ PORT=21111
 emulator.start(device="SDG1032X", port=PORT, daemon=True)
 ```
 
-Then execute your code giving the IP address and port of the emulator. Your code will behave just as if it was talking to a physical Siglent device. For instance, if you have a Python source file named `siglent_device` that has a class `Amplitude` you could write a test like this:
+Pass the IP address and port of the emulator to your functions. Your code will behave just as if it was talking to a physical Siglent device. For instance, if you have a Python source file named `siglent_device` that has a class `Amplitude` you could write a test like this:
 
 ```python
   IP_ADDR="127.0.0.1"
