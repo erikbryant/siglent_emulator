@@ -31,7 +31,7 @@ The emulator mimics your Siglent device. You will talk to the emulator just like
 from siglent_emulator import emulator
 
 PORT=21111
-emulator.start(port=PORT, daemon=True)
+emulator.start(device="SDG1032X", port=PORT, daemon=True)
 ```
 
 Then execute your code giving the IP address and port of the emulator. Your code will behave just as if it was talking to a physical Siglent device. For instance, if you have a Python source file named `siglent_device` that has a class `Amplitude` you could write a test like this:
@@ -46,7 +46,7 @@ Then execute your code giving the IP address and port of the emulator. Your code
   device.close()
 ```
 
-Look in the [examples](examples) directory for a fully working example that uses the Python unittest framework.
+Look in the [tests/examples](tests/examples) directory for a fully working example that uses the Python unittest framework.
 
 # Contributing to the Emulator
 

@@ -2,17 +2,18 @@
 
 import socket
 
+
 class Amplitude:
 
-    def connect(self, ip_addr: str, port: int):
+    sock: socket.socket
+
+    def connect(self, ip_addr: str, port: int) -> None:
         """Open a socket connection."""
-        sock = socket.create_connection((ip_addr, port), timeout=10.0)
-        setattr(self, "sock", sock)
+        self.sock = socket.create_connection((ip_addr, port), timeout=10.0)
 
     def close(self) -> None:
         """Close the socket connection."""
         self.sock.close()
-        delattr(self, "sock")
 
     def format_command(self, cmd: str) -> bytes:
         """Format a command to send.
