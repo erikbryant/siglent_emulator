@@ -206,7 +206,7 @@ class SDGChannel(ABC):
             for key in self.cvals:
                 if cmd == key:
                     param = sub_cmds[1]
-                    cvals[key] = param
+                    cvals[key] = param # pylint: disable=modified-iterating-dict
                     break
             else:
                 # This cmd is not suported

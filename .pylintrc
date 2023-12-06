@@ -126,8 +126,8 @@ check-quote-consistency=no
 check-str-concat-over-line-jumps=no
 [EXCEPTIONS]
 # Exceptions that will emit a warning when caught.
-overgeneral-exceptions=BaseException,
-                       Exception
+overgeneral-exceptions=builtins.BaseException,
+                       builtins.Exception
 [REFACTORING]
 # Maximum number of nested blocks for function / method body
 max-nested-blocks=5
