@@ -1,10 +1,10 @@
-sdist: venv/bin/activate
-	venv/bin/python -m pip install --upgrade build
-	venv/bin/python -m build
-
 venv/bin/activate: requirements.txt
 	python3 -m venv venv
 	venv/bin/python -m pip install -r requirements.txt
+
+sdist: venv/bin/activate
+	venv/bin/python -m pip install --upgrade build
+	venv/bin/python -m build
 
 test: venv/bin/activate
 	venv/bin/python -m tox
@@ -16,7 +16,7 @@ mypy: venv/bin/activate
 	venv/bin/python -m mypy src/ tests/
 
 black: venv/bin/activate
-	venv/bin/python -m black --target-version py310 $(CHECK_FLAGS) src/ tests/
+	venv/bin/python -m black --target-version py312 $(CHECK_FLAGS) src/ tests/
 
 all: pylint mypy black test
 
