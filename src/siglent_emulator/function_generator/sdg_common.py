@@ -16,7 +16,7 @@ from typing import Dict, List
 
 from siglent_emulator.function_generator import util
 
-# pylint: disable=line-too-long, broad-except
+# pylint: disable=line-too-long, broad-except, modified-iterating-dict
 
 Commands: List[str] = [
     "*OPC?",
@@ -206,7 +206,6 @@ class SDGChannel(ABC):
             for key in self.cvals:
                 if cmd == key:
                     param = sub_cmds[1]
-                    # pylint: disable=modified-iterating-dict
                     cvals[key] = param
                     break
             else:
