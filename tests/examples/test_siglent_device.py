@@ -4,7 +4,7 @@ import unittest
 
 from siglent_emulator import emulator
 
-import siglent_device
+from . import siglent_device
 
 IP_ADDR = "127.0.0.1"
 PORT = 21111
