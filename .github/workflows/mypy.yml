@@ -17,7 +17,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install mypy
         python -m pip install -r requirements.txt
         python -m pip install git+https://github.com/erikbryant/siglent_emulator
     - name: Analyzing source code with mypy
