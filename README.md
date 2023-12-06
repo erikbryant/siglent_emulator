@@ -1,29 +1,31 @@
+# Siglent Emulator
+
+Software emulator for [Siglent Technologies](https://siglentna.com/) test and measurement equipment. Use the emulator to test your code before deploying. The emulator is written in Python, but your code can be in any language.
+
+## Build Status
+
 ![Code Formatter](https://github.com/erikbryant/siglent_emulator/actions/workflows/formatter.yml/badge.svg)
 ![Type Checking](https://github.com/erikbryant/siglent_emulator/actions/workflows/mypy.yml/badge.svg)
 ![Pylint](https://github.com/erikbryant/siglent_emulator/actions/workflows/pylint.yml/badge.svg)
 ![Tests](https://github.com/erikbryant/siglent_emulator/actions/workflows/tests.yml/badge.svg)
 
-# Siglent Emulator
+## Supported Equipment
 
-Software emulator for [Siglent Technologies](https://siglentna.com/) test and measurement equipment. Use the emulator to test your code before deploying. The emulator is written in Python, but your code can be in any language.
-
-# Supported Equipment
-
-## Siglent Function Generator
+### Siglent Function Generator
 
 * SDG1000x series
 
-## Siglent Oscilloscope
+### Siglent Oscilloscope
 
 * Coming soon!
 
-# Installing the Emulator
+## Installing the Emulator
 
 ```shell
 python3 -m pip install git+https://github.com/erikbryant/siglent_emulator@0b5e28bfbc6506828f8323a2878d9af708678dd0
 ```
 
-# Using the Emulator in Tests
+## Using the Emulator in Tests
 
 The emulator mimics your Siglent device. Your tests will communicate with the emulator just as they would communicate with your Siglent device. The emulator can be started from within the test. There is no need to have it running separately. The emulator is started with just a few lines of Python:
 
@@ -48,11 +50,11 @@ Pass the IP address and port of the emulator to your functions. Your code will b
 
 Look in the [tests/examples](tests/examples) directory for a fully working example that uses the Python unittest framework.
 
-# Contributing to the Emulator
+## Contributing to the Emulator
 
 Pull requests are welcome!
 
-## Testing the emulator
+### Testing the emulator
 
 From the root directory of your checkout, type:
 
