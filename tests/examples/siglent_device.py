@@ -4,7 +4,6 @@ import socket
 
 
 class Amplitude:
-
     sock: socket.socket
 
     def connect(self, ip_addr: str, port: int) -> None:
