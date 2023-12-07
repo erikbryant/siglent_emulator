@@ -26,11 +26,12 @@ sdg1032x: venv/bin/activate
 clean:
 	find . -name "__pycache__" -type d -print0 | xargs -0 rm -rf
 	rm -rf src/siglent_emulator.egg-info
+	rm -f .coverage
+	rm -rf .tox
 	rm -rf .mypy_cache
 	rm -rf dist
 	rm -rf docs
 	rm -rf venv
-	rm -f .coverage
 
 # Targets that do not represent actual files
 .PHONY: sdist test pylint mypy black all sdg1032x clean
